@@ -1,0 +1,30 @@
+<template>
+  <div class="col-md-4 col-sm-6 mb-grid-gutter">
+    <div class="card card-product card-hover">
+      <a class="card-img-top" href="shop-single.html"><img src="img/shop/catalog/01.jpg" alt="Product thumbnail" /></a>
+      <div class="card-body">
+        <a class="meta-link fs-xs mb-1" href="#">Men's clothing</a>
+        <h3 class="fs-md fw-medium mb-2"><a class="meta-link" href="shop-single.html">Simple Cotton Gray T-shirt</a></h3>
+        <span class="text-heading fw-semibold">$19.00</span>
+      </div>
+      <div class="card-footer">
+        <div class="star-rating mt-n1">
+          <i class="sr-star ai-star-filled active"></i><i class="sr-star ai-star-filled active"></i><i class="sr-star ai-star-filled active"></i><i class="sr-star ai-star"></i
+          ><i class="sr-star ai-star"></i>
+        </div>
+        <div class="d-flex align-items-center">
+          <a class="btn-wishlist" href="#"><i class="ai-heart"></i><span class="btn-tooltip">Wishlist</span></a
+          ><span class="btn-divider"></span><a class="btn-addtocart" href="#"><i class="ai-shopping-cart"></i><span class="btn-tooltip">To Cart</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'ProductCard',
+};
+</script>
+<style lang="sass" scoped>
+</style>
