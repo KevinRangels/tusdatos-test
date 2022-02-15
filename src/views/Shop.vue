@@ -16,7 +16,7 @@
             </div>
           </div>
           <div class="row">
-            <ProductCard v-for="item in [1, 2, 3, 4, 5, 6, 7]" :key="item" />
+            <ProductCard v-for="item in products" :key="item.id" :data="item" />
           </div>
           <Pagination />
         </div>
@@ -38,6 +38,19 @@ export default {
     Fragment,
     ProductCard,
     Pagination,
+  },
+  mounted() {
+    this.handleGetProducts();
+  },
+  methods: {
+    handleGetProducts() {
+      this.$store.dispatch('getProducts');
+    },
+  },
+  computed: {
+    products() {
+      return this.$store.getters.allProducts;
+    },
   },
 };
 </script>
