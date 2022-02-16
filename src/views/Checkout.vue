@@ -7,17 +7,20 @@
       </div>
       <Summary />
     </div>
+    <ModalTransaction />
   </div>
 </template>
 
 <script>
 import FormTDC from '@/components/checkout/FormTDC.vue';
+import ModalTransaction from '@/components/checkout/ModalTransaction.vue';
 import Summary from '@/components/cart/Summary.vue';
 export default {
   name: 'Checkout',
   components: {
     FormTDC,
     Summary,
+    ModalTransaction,
   },
 };
 </script>

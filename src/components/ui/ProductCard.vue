@@ -1,13 +1,13 @@
 <template>
   <div class="col-md-4 col-sm-6 mb-grid-gutter">
     <div class="card card-product card-hover">
-      <a class="card-img-top" href="shop-single.html">
+      <a class="card-img-top" href="#">
         <img :src="data.image" alt="Product thumbnail" />
       </a>
       <div class="card-body">
         <a class="meta-link fs-xs mb-1" href="#">{{ data.category }}</a>
         <h3 class="fs-md fw-medium mb-2">
-          <a class="meta-link" href="shop-single.html">{{ data.title | titleCut }}</a>
+          <a class="meta-link" href="#">{{ data.title | titleCut }}</a>
         </h3>
         <span class="text-heading fw-semibold">${{ data.price }}</span>
       </div>
@@ -30,11 +30,11 @@
           />
         </div>
         <div class="d-flex align-items-center">
-          <a class="btn-wishlist" href="#"><i class="far fa-heart"></i><span class="btn-tooltip">Wishlist</span></a
+          <a class="btn-wishlist" href="#"><i class="far fa-heart"></i><span class="btn-tooltip">Favoritos</span></a
           ><span class="btn-divider"></span>
           <a class="btn-addtocart" @click="addProductToCart(data)">
             <i class="fas fa-shopping-cart"></i>
-            <span class="btn-tooltip">To Cart</span>
+            <span class="btn-tooltip">Al Carrito</span>
           </a>
         </div>
       </div>
@@ -103,4 +103,6 @@ export default {
   max-height: 250px
   min-height: 250px
   padding: 30px
+.fa-shopping-cart
+  cursor: pointer
 </style>

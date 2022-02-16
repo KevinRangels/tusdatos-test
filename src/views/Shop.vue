@@ -2,23 +2,24 @@
   <div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 content py-4 mb-2 mb-sm-0 pb-sm-5">
-          <div class="d-flex justify-content-between align-items-center py-3 mb-3">
-            <div class="d-flex justify-content-center align-items-center">
-              <select class="form-select me-2" style="width: 15.25rem">
-                <option value="popularity">Sort by popularity</option>
-                <option value="rating">Sort by average rating</option>
-                <option value="newness">Sort by newness</option>
-                <option value="price: low to high">Sort by price: low to high</option>
-                <option value="price: high to low">Sort by price: high to low</option>
-              </select>
-              <div class="d-none d-sm-block fs-sm text-nowrap ps-1 mb-1">of 135 products</div>
+        <div class="col-lg-12 py-4 mb-2 mb-sm-0 pb-sm-5">
+          <div class="row mb-3">
+            <div class="col-md-4 d-flex align-items-center">
+              <div class="">
+                <label class="form-label d-flex" for="cc-expiry">Buscar</label>
+                <input class="form-control me-2" type="text" v-model="filter" />
+              </div>
+              <div class="d-none d-sm-block fs-sm text-nowrap ps-1 mb-0 mx-2">{{ filteredProducts.length }} productos</div>
             </div>
           </div>
-          <div class="row">
-            <ProductCard v-for="item in products" :key="item.id" :data="item" />
+          <div class="row" v-if="filteredProducts.length === 0">
+            <div class="col-md-4 col-sm-6 mb-grid-gutter" v-for="item in [1, 2, 3, 4, 5, 6]" :key="item">
+              <PuSkeleton height="200px" />
+            </div>
           </div>
-          <Pagination />
+          <div class="row" v-else>
+            <ProductCard v-for="item in filteredProducts" :key="item.id" :data="item" />
+          </div>
         </div>
       </div>
     </div>
@@ -29,7 +30,6 @@
 import { Fragment } from 'vue-fragment';
 import Sidebar from '@/components/ui/Sidebar.vue';
 import ProductCard from '@/components/ui/ProductCard.vue';
-import Pagination from '@/components/ui/Pagination.vue';
 
 export default {
   name: 'Shop',
@@ -37,7 +37,11 @@ export default {
     Sidebar,
     Fragment,
     ProductCard,
-    Pagination,
+  },
+  data() {
+    return {
+      filter: '',
+    };
   },
   mounted() {
     this.handleGetProducts();
@@ -50,6 +54,12 @@ export default {
   computed: {
     products() {
       return this.$store.getters.allProducts;
+    },
+    filteredProducts() {
+      if (!this.filter) {
+        return this.products;
+      }
+      return this.products.filter((a) => a.title.toLowerCase().includes(this.filter.toLowerCase()) || a.description.toLowerCase().includes(this.filter.toLowerCase()));
     },
   },
 };

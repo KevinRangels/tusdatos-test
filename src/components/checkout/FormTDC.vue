@@ -70,10 +70,10 @@ export default {
   },
   methods: {
     pay() {
-      if (!this.validations()) {
-        return;
-      }
-      alert('proceder a pagar');
+      //   if (!this.validations()) {
+      //     return;
+      //   }
+      this.$store.dispatch('payCart');
     },
     validations() {
       if (this.validationTDC.number === false) {

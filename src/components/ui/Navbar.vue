@@ -14,40 +14,23 @@
         </div>
       </div>
     </div>
-    <div class="navbar navbar-expand-lg navbar-light bg-light navbar-shadow navbar-sticky" data-scroll-header data-fixed-element>
-      <div class="navbar-search bg-light">
-        <div class="container d-flex flex-nowrap align-items-center">
-          <i class="ai-search fs-xl"></i>
-          <input class="form-control form-control-xl navbar-search-field" type="text" placeholder="Search site" />
-          <div class="d-none d-sm-block flex-shrink-0 ps-2 me-4 border-start border-end" style="width: 10rem">
-            <select class="form-select ps-2 pe-0">
-              <option value="all">All categories</option>
-              <option value="clothing">Clothing</option>
-              <option value="shoes">Shoes</option>
-              <option value="electronics">Electronics</option>
-              <option value="accessoriies">Accessories</option>
-              <option value="software">Software</option>
-              <option value="automotive">Automotive</option>
-            </select>
-          </div>
-          <div class="d-flex align-items-center">
-            <span class="text-muted fs-xs d-none d-sm-inline">Close</span>
-            <button class="btn-close p-2" type="button" data-bs-toggle="search"></button>
-          </div>
-        </div>
-      </div>
+    <div class="navbar navbar-expand-lg navbar-light bg-light navbar-shadow navbar-sticky">
       <div class="container px-0 px-xl-3">
         <button class="navbar-toggler ms-n2 me-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#primaryMenu"><span class="navbar-toggler-icon"></span></button
-        ><a class="navbar-brand flex-shrink-0 order-lg-1 mx-auto ms-lg-0 pe-lg-2 me-lg-4" @click="goView('/')"
-          ><img class="d-none d-lg-block" src="img/logo/logo-dark.png" alt="Around" width="153" /><img class="d-lg-none" src="img/logo/logo-icon.png" alt="Around" width="58"
-        /></a>
+        ><a class="navbar-brand flex-shrink-0 order-lg-1 mx-auto ms-lg-0 pe-lg-2 me-lg-4 d-flex align-items-center" @click="goView('/')"
+          ><img
+            class="d-none d-lg-block mx-2"
+            src="https://media-exp1.licdn.com/dms/image/C560BAQGuky-4kcFjeg/company-logo_100_100/0/1574703502136?e=1652918400&v=beta&t=FrHrfeoFFuxANnM2oUqUg6997pTQOdbIzyk6nh6QT1s"
+            alt="Around"
+            width="40"
+          /><img
+            class="d-lg-none"
+            src="https://uploads-ssl.webflow.com/5e63c64451beef5b51c27896/6032cd75f5de0c556fc708b5_logo-td-small%20(1).png"
+            alt="Around"
+            width="58"
+          />TusDatos
+        </a>
         <div class="d-flex align-items-center order-lg-3 ms-lg-auto">
-          <div class="navbar-tool">
-            <a class="navbar-tool-icon-box me-2" href="#" data-bs-toggle="search"><i class="ai-search"></i></a>
-          </div>
-          <div class="navbar-tool d-none d-sm-flex">
-            <a class="navbar-tool-icon-box me-2" href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signin-view"><i class="ai-user"></i></a>
-          </div>
           <div class="border-start me-2" style="height: 30px"></div>
           <div class="navbar-tool me-2">
             <a class="navbar-tool-icon-box" @click="goView('/cart')"
@@ -61,11 +44,6 @@
             <button class="btn-close lead" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body"></div>
-          <div class="offcanvas-footer border-top">
-            <a class="btn btn-translucent-primary d-block w-100" href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signin-view"
-              ><i class="ai-user fs-lg me-2"></i>Sign in</a
-            >
-          </div>
         </div>
       </div>
     </div>
@@ -88,4 +66,11 @@ export default {
 };
 </script>
 <style lang="sass" scoped>
+.header
+  position: sticky
+  top: 0
+.navbar-brand
+  cursor: pointer
+.fa-shopping-cart
+  cursor: pointer
 </style>

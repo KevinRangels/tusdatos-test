@@ -1,28 +1,59 @@
 <template>
-  <!-- Coupon code modal-->
-  <div class="modal fade" id="modal-coupon" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Coupon code</h4>
-          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form class="modal-body needs-validation" novalidate>
-          <div class="input-group">
-            <input class="form-control" type="text" placeholder="Your coupon code" required />
-            <button class="btn btn-primary" type="submit">Apply code</button>
-          </div>
-        </form>
+  <b-modal v-model="modalStatusPay" size="md" centered hide-footer hide-header no-close-on-esc no-close-on-backdrop content-class="modalContent" body-class="modalBody">
+    <div>
+      <div class="d-flex justify-content-center">
+        <img v-if="!payStatus" src="assets/img/alerts/declined.svg" width="100" alt="" class="img-fluid" />
+      </div>
+      <h6 v-if="!payStatus" class="text-center">Ha ocurrido un error al procesar tu pago</h6>
+
+      <div class="d-flex justify-content-center">
+        <img v-if="payStatus" src="assets/img/alerts/approved.svg" width="250" alt="" class="img-fluid" />
+      </div>
+      <h6 v-if="payStatus" class="text-center">Pago aprovado</h6>
+
+      <div class="d-flex justify-content-center mt-3">
+        <button class="btn btn-primary btn-sm" @click="closeModal()">Aceptar</button>
       </div>
     </div>
-  </div>
+  </b-modal>
 </template>
 
 <script>
 export default {
   name: 'ModalTransaction',
+  data() {
+    return {};
+  },
+  computed: {
+    modalStatusPay() {
+      return this.$store.getters.modalStatusPay;
+    },
+    payStatus() {
+      return this.$store.getters.payStatus;
+    },
+  },
+  methods: {
+    closeModal() {
+      this.$store.dispatch('showModalStatusPay', false);
+    },
+  },
 };
 </script>
 
-<style>
+<style >
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.541) !important;
+}
+.modalContent {
+  background: none;
+  width: 100%;
+  align-items: center;
+  border: none;
+}
+.modalBody {
+  background: #fafafa !important;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 8px;
+  width: 366px;
+}
 </style>
