@@ -9,10 +9,10 @@
       </div>
     </td>
     <td class="py-3 align-middle">$ {{ data.price }}</td>
-    <td class="py-3 align-middle text-center m-auto">
-      <input class="form-control text-center w-50" type="number" min="1" id="" :value="data.quantity" @change="handleChangeValue($event)" />
+    <td class="py-3 align-middle text-center">
+      <input class="form-control text-center w-50 d-inline" type="number" min="1" id="" :value="data.quantity" @change="handleChangeValue($event)" />
     </td>
-    <td class="py-3 align-middle">{{ totalItem }}</td>
+    <td class="py-3 align-middle">$ {{ totalItem }}</td>
     <td class="py-3 align-middle">
       <a class="nav-link-style text-danger" @click="handleDeleteItem(data.id)" data-bs-toggle="tooltip" title="" data-bs-original-title="Remove">
         <div class="fas fa-trash"></div>

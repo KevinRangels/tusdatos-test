@@ -3,7 +3,7 @@
     <div class="row">
       <!-- Content-->
       <div class="col-lg-8 content py-4">
-        <h1 class="mb-3 pb-4">Carrito de compras</h1>
+        <h1 class="mb-3 pb-4 text-start">Carrito de compras</h1>
         <div class="table-responsive fs-md">
           <TableCart />
         </div>
