@@ -3,8 +3,10 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import Notifications from 'vue-notification';
+import VueTheMask from 'vue-the-mask';
 
 Vue.use(Notifications);
+Vue.use(VueTheMask);
 
 Vue.config.productionTip = false;
 
