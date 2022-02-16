@@ -2,7 +2,7 @@
   <tr>
     <td class="py-3 align-middle">
       <div class="d-flex align-items-center">
-        <img class="me-2" :src="data.image" alt="Visa" width="39" />
+        <img class="me-2 d-none d-md-block" :src="data.image" alt="Visa" width="39" />
         <div>
           <span class="fw-medium text-heading me-1">{{ data.name | titleCut }}</span>
         </div>

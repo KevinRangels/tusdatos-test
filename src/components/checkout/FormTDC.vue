@@ -8,7 +8,7 @@
     <div class="" id="credit-card" aria-labelledby="heading-1" data-bs-parent="#payment-methods" style="">
       <div class="accordion-body">
         <div class="row g-0">
-          <div class="col-6 px-2 formTDC__inputTDC">
+          <div class="col-md-6 px-2 mb-3 formTDC__inputTDC">
             <label class="form-label d-flex align-items-center" for="cc-number"
               >Número de tarjeta <small class="mx-3">(<a href="https://herramientas-online.com/generador-tarjeta-credito-cvv.php" target="_blank">Generar</a>)</small></label
             >
@@ -19,25 +19,25 @@
               <img class="img-fluid" src="assetsimg/icon_tdc/american-express.svg" alt="" v-if="cardSelect === 'AMEX'" style="height: 27px" />
             </div>
           </div>
-          <div class="col-6 px-2 mb-3">
+          <div class="col-md-6 px-2 mb-3">
             <label class="form-label d-flex" for="cc-number">Nombre titular</label>
             <input class="form-control bg-none" type="text" id="tdcName" v-model="tdcName" />
           </div>
-          <div class="col-3 px-2">
+          <div class="col-md-3 px-2 mb-3">
             <label class="form-label d-flex" for="cc-expiry">Mes</label>
             <the-mask :mask="['##']" v-model="tdcMonth" class="form-control bg-none" type="text" id="tdcMonth" data-format="date" placeholder="01" />
           </div>
-          <div class="col-3 px-2">
+          <div class="col-md-3 px-2 mb-3">
             <label class="form-label d-flex" for="cc-expiry">Año</label>
             <the-mask :mask="['##']" class="form-control bg-none" type="text" id="tdcYear" placeholder="22" v-model="tdcYear" />
           </div>
-          <div class="col-3 px-2">
+          <div class="col-md-3 px-2 mb-3">
             <label class="form-label d-flex" for="cc-cvc">CVC</label>
             <the-mask :mask="['###']" v-model="tdcCVV" class="form-control bg-none" type="text" id="tdcCVC" placeholder="000" />
           </div>
         </div>
         <div class="row g-0">
-          <div class="col-3 px-2 mt-3">
+          <div class="col-md-3 px-2 mt-3">
             <button class="btn btn-primary d-block w-100" @click="pay">Pagar</button>
           </div>
         </div>
@@ -70,9 +70,9 @@ export default {
   },
   methods: {
     pay() {
-      //   if (!this.validations()) {
-      //     return;
-      //   }
+      if (!this.validations()) {
+        return;
+      }
       this.$store.dispatch('payCart');
     },
     validations() {
@@ -196,11 +196,11 @@ export default {
 
 <style lang="sass" scoped>
 .formTDC__inputTDC
-    position: relative
+  position: relative
 .formTDC__cardSelect
-    position: absolute
-    right: 20px
-    top: 38px
+  position: absolute
+  right: 20px
+  top: 38px
 .input__invalid
-    border: 1px solid rgb(182, 29, 29)
+  border: 1px solid rgb(182, 29, 29)
 </style>

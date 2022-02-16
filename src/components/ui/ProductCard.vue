@@ -30,7 +30,8 @@
           />
         </div>
         <div class="d-flex align-items-center">
-          <a class="btn-wishlist" href="#"><i class="far fa-heart"></i><span class="btn-tooltip">Favoritos</span></a
+          <a class="btn-wishlist" @click="addProductFavorite()"
+            ><i class="fas fa-heart" v-bind:class="[favorive && 'favorie__active']"></i><span class="btn-tooltip">Favoritos</span></a
           ><span class="btn-divider"></span>
           <a class="btn-addtocart" @click="addProductToCart(data)">
             <i class="fas fa-shopping-cart"></i>
@@ -53,6 +54,11 @@ export default {
   components: {
     StarRating,
   },
+  data() {
+    return {
+      favorive: false,
+    };
+  },
   methods: {
     addProductToCart(product) {
       this.$store.dispatch('addProduct', product).then((e) => {
@@ -72,6 +78,24 @@ export default {
           });
         }
       });
+    },
+    addProductFavorite() {
+      this.favorive = !this.favorive;
+      if (this.favorive) {
+        this.$notify({
+          group: 'app',
+          type: 'success',
+          title: 'Agregado',
+          text: 'Producto agregado a favoritos',
+        });
+      } else {
+        this.$notify({
+          group: 'app',
+          type: 'success',
+          title: 'Eliminado',
+          text: 'Producto eliminado de favoritos',
+        });
+      }
     },
   },
   computed: {
@@ -104,5 +128,9 @@ export default {
   min-height: 250px
   padding: 30px
 .fa-shopping-cart
+  cursor: pointer
+.favorie__active
+  color: red
+.fa-heart
   cursor: pointer
 </style>

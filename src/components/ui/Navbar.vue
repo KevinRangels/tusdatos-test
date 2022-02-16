@@ -3,14 +3,8 @@
     <div class="topbar topbar-dark bg-dark">
       <div class="container d-md-flex align-items-center px-0 px-xl-3">
         <div class="d-none d-md-block text-nowrap me-3">
-          <i class="ai-phone fs-base text-muted me-1 align-middle"></i><span class="text-muted me-2">Support</span
-          ><a class="topbar-link me-1" href="tel:9107848015">910-784-8015</a>
-        </div>
-        <div class="d-flex text-md-end ms-md-auto">
-          <div class="dropdown">
-            <a class="topbar-link dropdown-toggle" href="#" data-bs-toggle="dropdown">$ Dollar (US)</a>
-            <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">€ Euro (EU)</a></div>
-          </div>
+          <i class="fas fa-phone fs-base text-muted me-1 align-middle"></i><span class="text-muted me-2">Soporte</span
+          ><a class="topbar-link me-1" href="tel:3228329136">322-832-9136</a>
         </div>
       </div>
     </div>
@@ -60,6 +54,15 @@ export default {
   },
   methods: {
     goView(route) {
+      if (route === '/cart' && this.shoppingCart.length === 0) {
+        this.$notify({
+          group: 'app',
+          type: 'warn',
+          title: 'Agregar productos',
+          text: 'No tienes productos en tu carrito',
+        });
+        return;
+      }
       this.$router.push(route);
     },
   },
@@ -73,4 +76,6 @@ export default {
   cursor: pointer
 .fa-shopping-cart
   cursor: pointer
+.dropdown-toggle:not(.dropdown-toggle-split)::after
+  display: none
 </style>
