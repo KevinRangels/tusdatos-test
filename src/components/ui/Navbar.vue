@@ -50,8 +50,8 @@
           </div>
           <div class="border-start me-2" style="height: 30px"></div>
           <div class="navbar-tool me-2">
-            <a class="navbar-tool-icon-box" href="#" data-bs-toggle="offcanvas" data-bs-target="#shoppingCart"
-              ><i class="ai-shopping-cart"></i><span class="navbar-tool-badge">3</span></a
+            <a class="navbar-tool-icon-box" @click="goCart()"
+              ><i class="fas fa-shopping-cart"></i><span class="navbar-tool-badge">{{ shoppingCart.length }}</span></a
             >
           </div>
         </div>
@@ -75,6 +75,16 @@
 <script>
 export default {
   name: 'Navbar',
+  computed: {
+    shoppingCart() {
+      return this.$store.getters.shoppingCart;
+    },
+  },
+  methods: {
+    goCart() {
+      this.$router.push('/car');
+    },
+  },
 };
 </script>
 <style lang="sass" scoped>

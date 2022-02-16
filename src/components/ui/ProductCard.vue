@@ -24,14 +24,18 @@
             :border-width="2"
             :active-color="activeStar"
             :padding="3"
-            :border-color="starBorder"
-            :active-border-color="activeStar"
+            :border-color="borderStart"
+            :active-border-color="starBorder"
             :inactive-color="starInactive"
           />
         </div>
         <div class="d-flex align-items-center">
           <a class="btn-wishlist" href="#"><i class="far fa-heart"></i><span class="btn-tooltip">Wishlist</span></a
-          ><span class="btn-divider"></span><a class="btn-addtocart" href="#"><i class="fas fa-shopping-cart"></i><span class="btn-tooltip">To Cart</span></a>
+          ><span class="btn-divider"></span>
+          <a class="btn-addtocart" @click="addProductToCart(data)">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="btn-tooltip">To Cart</span>
+          </a>
         </div>
       </div>
     </div>
@@ -44,15 +48,45 @@ import StarRating from 'vue-star-rating';
 export default {
   name: 'ProductCard',
   props: {
-    data: {
-      borderStart: '#d8d8d8',
-      activeStar: '#FFAF19',
-      starBorder: '#d8d8d8',
-      starInactive: '#D4D4D4',
-    },
+    data: {},
   },
   components: {
     StarRating,
+  },
+  methods: {
+    addProductToCart(product) {
+      this.$store.dispatch('addProduct', product).then((e) => {
+        if (e) {
+          this.$notify({
+            group: 'app',
+            type: 'success',
+            title: 'Agregado',
+            text: 'Producto agregado al carrito',
+          });
+        } else {
+          this.$notify({
+            group: 'app',
+            type: 'warn',
+            title: 'Ya lo tienes',
+            text: 'Tienes este producto en tu carrito',
+          });
+        }
+      });
+    },
+  },
+  computed: {
+    borderStart() {
+      return '#d8d8d8';
+    },
+    activeStar() {
+      return '#FFAF19';
+    },
+    starBorder() {
+      return '#d8d8d8';
+    },
+    starInactive() {
+      return '#D4D4D4';
+    },
   },
   filters: {
     titleCut(text) {

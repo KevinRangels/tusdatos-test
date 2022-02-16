@@ -4,6 +4,7 @@
       <Navbar />
       <router-view />
     </div>
+    <notifications group="app" position="bottom center" />
   </main>
 </template>
 <script>
