@@ -38,7 +38,7 @@
       </div>
       <div class="container px-0 px-xl-3">
         <button class="navbar-toggler ms-n2 me-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#primaryMenu"><span class="navbar-toggler-icon"></span></button
-        ><a class="navbar-brand flex-shrink-0 order-lg-1 mx-auto ms-lg-0 pe-lg-2 me-lg-4" href="index.html"
+        ><a class="navbar-brand flex-shrink-0 order-lg-1 mx-auto ms-lg-0 pe-lg-2 me-lg-4" @click="goView('/')"
           ><img class="d-none d-lg-block" src="img/logo/logo-dark.png" alt="Around" width="153" /><img class="d-lg-none" src="img/logo/logo-icon.png" alt="Around" width="58"
         /></a>
         <div class="d-flex align-items-center order-lg-3 ms-lg-auto">
@@ -50,7 +50,7 @@
           </div>
           <div class="border-start me-2" style="height: 30px"></div>
           <div class="navbar-tool me-2">
-            <a class="navbar-tool-icon-box" @click="goCart()"
+            <a class="navbar-tool-icon-box" @click="goView('/cart')"
               ><i class="fas fa-shopping-cart"></i><span class="navbar-tool-badge">{{ shoppingCart.length }}</span></a
             >
           </div>
@@ -81,8 +81,8 @@ export default {
     },
   },
   methods: {
-    goCart() {
-      this.$router.push('/cart');
+    goView(route) {
+      this.$router.push(route);
     },
   },
 };
