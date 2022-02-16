@@ -1,12 +1,27 @@
 <template>
-  <div class="cart">
-    <h1>Carrito de compras</h1>
+  <div class="container">
+    <div class="row">
+      <!-- Content-->
+      <div class="col-lg-8 content py-4">
+        <h1 class="mb-3 pb-4">Carrito de compras</h1>
+        <div class="table-responsive fs-md">
+          <TableCart />
+        </div>
+      </div>
+      <Summary />
+    </div>
   </div>
 </template>
 
 <script>
+import TableCart from '@/components/cart/TableCart.vue';
+import Summary from '@/components/cart/Summary.vue';
 export default {
-  name: "Cart",
+  name: 'Cart',
+  components: {
+    TableCart,
+    Summary,
+  },
 };
 </script>
 <style lang="sass" scoped>

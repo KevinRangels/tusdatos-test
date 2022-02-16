@@ -82,7 +82,7 @@ export default {
   },
   methods: {
     goCart() {
-      this.$router.push('/car');
+      this.$router.push('/cart');
     },
   },
 };
