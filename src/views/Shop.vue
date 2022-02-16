@@ -12,13 +12,16 @@
               <div class="d-none d-sm-block fs-sm text-nowrap ps-1 mb-0 mx-2">{{ filteredProducts.length }} productos</div>
             </div>
           </div>
-          <div class="row" v-if="filteredProducts.length === 0">
+          <div class="row" v-if="loadingProducts">
             <div class="col-md-4 col-sm-6 mb-grid-gutter" v-for="item in [1, 2, 3, 4, 5, 6]" :key="item">
               <PuSkeleton height="200px" />
             </div>
           </div>
-          <div class="row" v-else>
+          <div class="row">
             <ProductCard v-for="item in filteredProducts" :key="item.id" :data="item" />
+          </div>
+          <div class="row" v-if="filteredProducts.length === 0 && !loadingProducts">
+            <p>No se encontraron productos</p>
           </div>
         </div>
       </div>
@@ -54,6 +57,9 @@ export default {
   computed: {
     products() {
       return this.$store.getters.allProducts;
+    },
+    loadingProducts() {
+      return this.$store.getters.loadingProducts;
     },
     filteredProducts() {
       if (!this.filter) {
