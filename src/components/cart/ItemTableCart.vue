@@ -46,7 +46,7 @@ export default {
         this.$notify({
           group: 'app',
           type: 'success',
-          title: 'Elimnado',
+          title: 'Eliminado',
           text: 'Producto eliminado del carrito',
         });
       });
@@ -63,5 +63,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="sass" scoped>
+.fa-trash
+  cursor: pointer
 </style>

@@ -9,7 +9,7 @@
       <div class="d-flex justify-content-center">
         <img v-if="payStatus" src="assets/img/alerts/approved.svg" width="250" alt="" class="img-fluid" />
       </div>
-      <h6 v-if="payStatus" class="text-center">Pago aprovado</h6>
+      <h6 v-if="payStatus" class="text-center">Pago aprobado</h6>
 
       <div class="d-flex justify-content-center mt-3">
         <button class="btn btn-primary btn-sm" @click="closeModal()">Aceptar</button>
